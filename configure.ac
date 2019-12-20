@@ -273,10 +273,6 @@ AM_CONDITIONAL([BDJ_J2SE], [ test x"$BDJ_TYPE" != x"j2me" ])
 dnl bootclasspath
 AC_SUBST(BDJ_BOOTCLASSPATH)
 
-dnl udf support (using git submodule)
-if test ! -f "${srcdir}/contrib/libudfread/src/udfread.h"; then
-    AC_MSG_ERROR("libudfread source tree not found")
-fi
 AC_CHECK_HEADERS([unistd.h fcntl.h])
 AS_IF([test "${SYS}" != "mingw32"], [
     AC_CHECK_FUNC([pread],, [AC_DEFINE([NEED_PREAD_IMPL], [1], [Define to 1 to use inefficient pread() replacement])])
